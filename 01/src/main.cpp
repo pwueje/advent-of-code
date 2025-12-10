@@ -1,9 +1,9 @@
 /*********************************************************************
  * @file   main.cpp
- * @brief  Advent Of Code 2024: 01
+ * @brief  Advent Of Code 2025: 01
  *
  * @author Philipp Jeske
- * @date   2024-12-04
+ * @date   2025-12-10
  *********************************************************************/
 /* SPDX-License-Identifier: MIT */
 
@@ -13,11 +13,10 @@
 #include <iostream>
 #include <vector>
 
-#include "distcalc.h"
 
 int main(int argc, char* argv[])
 {
-    argparse::ArgumentParser program("Advent Of Code 2024: 01");
+    argparse::ArgumentParser program("Advent Of Code 2025: 01");
 
     program.add_argument("input").help("Input file").default_value(std::string {"coordinates.txt"});
 

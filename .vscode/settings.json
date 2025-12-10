@@ -83,5 +83,6 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "chat.disableAIFeatures": true
 }

@@ -1,8 +1,8 @@
 {
-    "build": {
-        "dockerfile": "Dockerfile.new"
-    },
-    // "image": "adventofcode:latest",
+    // "build": {
+    //     "dockerfile": "Dockerfile"
+    // },
+    "image": "pjexx-cpp-env:latest",
     "runArgs": ["--userns=keep-id:uid=1000,gid=1000"],
     "customizations": {
         "vscode": {

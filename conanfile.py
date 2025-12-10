@@ -6,10 +6,13 @@ class MatrixConanFile(ConanFile):
     generators = "CMakeToolchain", "CMakeDeps"
     
     def requirements(self):
-        self.requires("argparse/3.1")
+        self.requires("argparse/3.2")
+        self.requires("spdlog/1.16.0")
+        self.requires("magic_enum/0.9.7")
+
 
     def build_requirements(self):
-        self.test_requires("catch2/3.7.1")
+        self.test_requires("catch2/3.11.0")
         
     def layout(self):
         cmake_layout(self)

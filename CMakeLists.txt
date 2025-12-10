@@ -4,6 +4,7 @@
 cmake_minimum_required (VERSION 3.22)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_LINKER_TYPE LLD)
+set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
 
 # Enable Hot Reload for MSVC compilers if supported.
 if (POLICY CMP0141)
@@ -11,10 +12,9 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("AdventOfCode"
+project ("AdventOfCode2025"
 		VERSION 0.1
-		DESCRIPTION "Implementation of a circular buffer as a playground for new C++ features"
-        HOMEPAGE_URL "https://adventofcode.com/2024"
+    HOMEPAGE_URL "https://adventofcode.com/2025"
 		LANGUAGES CXX
 )
 
@@ -24,7 +24,5 @@ include(BuildProperties)
 include(Coverage)
 
 add_subdirectory(01)
-add_subdirectory(02)
-
 include(CTest)
 enable_testing()

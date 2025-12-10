@@ -1,7 +1,7 @@
-# Copyright 2024 Philipp Jeske
+# Copyright 2025 Philipp Jeske
 # SPDX-License-Identifier: MIT
 
-set(executable "aoc-2024-01")
+set(executable "aoc-2025-01")
 
 add_subdirectory(src)
 add_subdirectory(test)
