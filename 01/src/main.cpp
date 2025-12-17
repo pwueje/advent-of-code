@@ -7,18 +7,22 @@
  *********************************************************************/
 /* SPDX-License-Identifier: MIT */
 
+#include <spdlog/spdlog.h>
+
 #include <argparse/argparse.hpp>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
 #include <vector>
 
+#include "calculations.h"
+#include "parser.h"
 
 int main(int argc, char* argv[])
 {
     argparse::ArgumentParser program("Advent Of Code 2025: 01");
 
-    program.add_argument("input").help("Input file").default_value(std::string {"coordinates.txt"});
+    program.add_argument("input").help("Input file").default_value(std::string {"input.txt"});
 
     try
     {
@@ -26,8 +30,8 @@ int main(int argc, char* argv[])
     }
     catch (const std::exception& err)
     {
-        std::cerr << err.what() << '\n';
-        std::cerr << program;
+        spdlog::error(err.what());
+        spdlog::error(program);
         return EXIT_FAILURE;
     }
 
@@ -35,25 +39,9 @@ int main(int argc, char* argv[])
 
     if (!std::filesystem::exists(input_file))
     {
-        std::cerr << "Input file does not exist: " << input_file << '\n';
+        spdlog::error("Input file does not exist: {}", input_file);
         return EXIT_FAILURE;
     }
-
-    std::vector<int> lista;
-    std::vector<int> listb;
-
-    std::ifstream input_stream {input_file};
-
-    int a = 0;
-    int b = 0;
-    while (input_stream >> a >> b)
-    {
-        lista.push_back(a);
-        listb.push_back(b);
-    }
-
-    std::cout << "Distance between lists: " << pjexx::aoc2024::distance(lista, listb) << '\n';
-    std::cout << "The similarity between both lists: " << pjexx::aoc2024::similarity(lista, listb) << '\n';
 
     return EXIT_SUCCESS;
 }

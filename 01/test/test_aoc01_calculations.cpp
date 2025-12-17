@@ -1,6 +1,6 @@
 /*********************************************************************
- * @file   main.cpp
- * @brief  Advent Of Code 2024: 01
+ * @file   test_aoc01_calculations.cpp
+ * @brief
  *
  * @author Philipp Jeske
  * @date   2025-12-04

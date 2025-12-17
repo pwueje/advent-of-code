@@ -9,7 +9,7 @@ class MatrixConanFile(ConanFile):
         self.requires("argparse/3.2")
         self.requires("spdlog/1.16.0")
         self.requires("magic_enum/0.9.7")
-
+        self.requires("scnlib/4.0.1")
 
     def build_requirements(self):
         self.test_requires("catch2/3.11.0")
