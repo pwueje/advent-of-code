@@ -13,6 +13,7 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <ranges>
 #include <vector>
 
 #include "calculations.h"
@@ -31,7 +32,6 @@ int main(int argc, char* argv[])
     catch (const std::exception& err)
     {
         spdlog::error(err.what());
-        spdlog::error(program);
         return EXIT_FAILURE;
     }
 
@@ -39,9 +39,15 @@ int main(int argc, char* argv[])
 
     if (!std::filesystem::exists(input_file))
     {
-        spdlog::error("Input file does not exist: {}", input_file);
+        spdlog::error("Input file does not exist: {}", input_file.string());
         return EXIT_FAILURE;
     }
+
+    std::ifstream file {input_file};
+
+    pjexx::aoc2025::Position<100> dial {50};
+    auto password = pjexx::aoc2025::calculatePassword(dial, pjexx::aoc2025::parse(file));
+    spdlog::info("The password is: {}", password);
 
     return EXIT_SUCCESS;
 }
